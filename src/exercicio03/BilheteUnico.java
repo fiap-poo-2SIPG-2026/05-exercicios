@@ -5,31 +5,12 @@ import java.util.Random;
 public class BilheteUnico {
     int numero;
     double saldo;
-    final static double tarifaBase = 5.4;
+    final static double TARIFA = 5.40;
+    Usuario usuario;
 
-    public BilheteUnico() {
-        this.numero = gerarNumero();
-        this.saldo = 0;
-
-    }
-
-    public int gerarNumero() {
+    public BilheteUnico(Usuario usuario) {
         Random random = new Random();
-        return random.nextInt(1000, 9999);
+        this.numero = random.nextInt(1000, 9999);
+        this.usuario = usuario;
     }
-
-    public void carregar(double valor) {
-        this.saldo += valor;
-    }
-
-    public double calcularTarifa() {
-        return 0.0;
-    }
-
-    public boolean passarNaCatraca() {
-        double valor = calcularTarifa();
-
-        return true;
-    }
-
 }
