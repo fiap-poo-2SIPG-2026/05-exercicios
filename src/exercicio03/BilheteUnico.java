@@ -13,4 +13,20 @@ public class BilheteUnico {
         this.numero = random.nextInt(1000, 9999);
         this.usuario = usuario;
     }
+
+    public void carregar(double valor) {
+        saldo += valor;
+    }
+
+    public boolean passarNaCatraca() {
+        double valor = TARIFA / 2;
+        if(usuario.tipoTarifa.equalsIgnoreCase("comum")) {
+            valor = TARIFA;
+        }
+        if(saldo < valor) {
+            return false;
+        }
+        saldo -= valor;
+        return true;
+    }
 }

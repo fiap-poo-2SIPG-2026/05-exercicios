@@ -36,7 +36,7 @@ public class Main {
             nome = sc.next();
             System.out.print("CPF: ");
             cpf = sc.nextLong();
-            System.out.print("Tipo de tarifa (estudante | professor | normal): ");
+            System.out.print("Tipo de tarifa (estudante | professor | comum): ");
             tipoTarifa = sc.next();
             Usuario usuario = new Usuario(nome, cpf, tipoTarifa);
             bilhete[index] = new BilheteUnico(usuario);
