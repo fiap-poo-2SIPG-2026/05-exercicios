@@ -19,11 +19,24 @@ public class Main {
 
             switch (opcao) {
                 case 1 -> cadastrar();
+                case 2 -> carregar();
+                case 3 -> passarNaCatraca();
+                case 4 -> System.out.println("Até breve!");
+                default -> System.out.println("Opção inválida!");
             }
-
+            System.out.println("\n##############################################");
         } while(opcao != 4);
 
+    }
 
+    private static void passarNaCatraca() {
+        BilheteUnico bilheteUnico = pesquisar();
+        if(bilheteUnico != null) {
+            if(!bilheteUnico.passarNaCatraca()) {
+                System.out.println("Saldo insuficiente");
+            }
+            System.out.println("Saldo atual R$ " + bilheteUnico.saldo);
+        }
     }
 
     private static void cadastrar() {
@@ -48,7 +61,7 @@ public class Main {
 
     }
 
-    public BilheteUnico pesquisar() {
+    public static BilheteUnico pesquisar() {
         long cpf;
         System.out.print("Qual o CPF para pesquisa? ");
         cpf = sc.nextLong();
@@ -58,10 +71,11 @@ public class Main {
                 return bilhete[i];
             }
         }
+        System.out.println("CPF não encontrado");
         return null;
     }
 
-    public void carregar() {
+    public static void carregar() {
         double valor;
         BilheteUnico bilheteEncontrado = pesquisar();
         if(bilheteEncontrado != null) {
